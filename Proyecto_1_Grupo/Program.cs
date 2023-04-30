@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World! HOLA GITHUB");
+            Console.WriteLine("HOLA SOY NACHO");
             Console.WriteLine("Forza Ducati");
         }
     }
