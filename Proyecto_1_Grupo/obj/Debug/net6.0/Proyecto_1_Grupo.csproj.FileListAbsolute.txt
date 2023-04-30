@@ -1,0 +1,15 @@
+C:\Users\duili\Desktop\UPSO-2023-1Q\Programacion C Sharp - .NET\Clases_Codigo_Binarios\Proyecto_1_Grupo\Proyecto_1_Grupo\bin\Debug\net6.0\Proyecto_1_Grupo.exe
+C:\Users\duili\Desktop\UPSO-2023-1Q\Programacion C Sharp - .NET\Clases_Codigo_Binarios\Proyecto_1_Grupo\Proyecto_1_Grupo\bin\Debug\net6.0\Proyecto_1_Grupo.deps.json
+C:\Users\duili\Desktop\UPSO-2023-1Q\Programacion C Sharp - .NET\Clases_Codigo_Binarios\Proyecto_1_Grupo\Proyecto_1_Grupo\bin\Debug\net6.0\Proyecto_1_Grupo.runtimeconfig.json
+C:\Users\duili\Desktop\UPSO-2023-1Q\Programacion C Sharp - .NET\Clases_Codigo_Binarios\Proyecto_1_Grupo\Proyecto_1_Grupo\bin\Debug\net6.0\Proyecto_1_Grupo.dll
+C:\Users\duili\Desktop\UPSO-2023-1Q\Programacion C Sharp - .NET\Clases_Codigo_Binarios\Proyecto_1_Grupo\Proyecto_1_Grupo\bin\Debug\net6.0\Proyecto_1_Grupo.pdb
+C:\Users\duili\Desktop\UPSO-2023-1Q\Programacion C Sharp - .NET\Clases_Codigo_Binarios\Proyecto_1_Grupo\Proyecto_1_Grupo\obj\Debug\net6.0\Proyecto_1_Grupo.csproj.AssemblyReference.cache
+C:\Users\duili\Desktop\UPSO-2023-1Q\Programacion C Sharp - .NET\Clases_Codigo_Binarios\Proyecto_1_Grupo\Proyecto_1_Grupo\obj\Debug\net6.0\Proyecto_1_Grupo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\duili\Desktop\UPSO-2023-1Q\Programacion C Sharp - .NET\Clases_Codigo_Binarios\Proyecto_1_Grupo\Proyecto_1_Grupo\obj\Debug\net6.0\Proyecto_1_Grupo.AssemblyInfoInputs.cache
+C:\Users\duili\Desktop\UPSO-2023-1Q\Programacion C Sharp - .NET\Clases_Codigo_Binarios\Proyecto_1_Grupo\Proyecto_1_Grupo\obj\Debug\net6.0\Proyecto_1_Grupo.AssemblyInfo.cs
+C:\Users\duili\Desktop\UPSO-2023-1Q\Programacion C Sharp - .NET\Clases_Codigo_Binarios\Proyecto_1_Grupo\Proyecto_1_Grupo\obj\Debug\net6.0\Proyecto_1_Grupo.csproj.CoreCompileInputs.cache
+C:\Users\duili\Desktop\UPSO-2023-1Q\Programacion C Sharp - .NET\Clases_Codigo_Binarios\Proyecto_1_Grupo\Proyecto_1_Grupo\obj\Debug\net6.0\Proyecto_1_Grupo.dll
+C:\Users\duili\Desktop\UPSO-2023-1Q\Programacion C Sharp - .NET\Clases_Codigo_Binarios\Proyecto_1_Grupo\Proyecto_1_Grupo\obj\Debug\net6.0\refint\Proyecto_1_Grupo.dll
+C:\Users\duili\Desktop\UPSO-2023-1Q\Programacion C Sharp - .NET\Clases_Codigo_Binarios\Proyecto_1_Grupo\Proyecto_1_Grupo\obj\Debug\net6.0\Proyecto_1_Grupo.pdb
+C:\Users\duili\Desktop\UPSO-2023-1Q\Programacion C Sharp - .NET\Clases_Codigo_Binarios\Proyecto_1_Grupo\Proyecto_1_Grupo\obj\Debug\net6.0\Proyecto_1_Grupo.genruntimeconfig.cache
+C:\Users\duili\Desktop\UPSO-2023-1Q\Programacion C Sharp - .NET\Clases_Codigo_Binarios\Proyecto_1_Grupo\Proyecto_1_Grupo\obj\Debug\net6.0\ref\Proyecto_1_Grupo.dll

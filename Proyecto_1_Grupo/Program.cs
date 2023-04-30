@@ -33,7 +33,7 @@ namespace Proyecto_1_Grupo
                 Console.WriteLine("");
                 opcion = Convert.ToInt32(Console.ReadLine());
 
-                switch (opcion) 
+                switch (opcion)
                 {
                     case 1:
                         Console.WriteLine("Dar de Alta un Vehiculo Tesla");
@@ -49,19 +49,27 @@ namespace Proyecto_1_Grupo
                         string color = Console.ReadLine();
                         Console.WriteLine("Ingrese el Dueño del Modelo Tesla");
                         string duenio = Console.ReadLine();
-                        teslas[cantidad_autos] = new Tesla { modelo = modelo, anio = anio, kmActual = kmActual, kmService = kmService, 
-                            color = color, duenio = duenio };
+                        teslas[cantidad_autos] = new Tesla
+                        {
+                            modelo = modelo,
+                            anio = anio,
+                            kmActual = kmActual,
+                            kmService = kmService,
+                            color = color,
+                            duenio = duenio
+                        };
                         cantidad_autos++;
                         Console.WriteLine($"Se ha dado de alta un nuevo vehiculo Tesla: Modelo {modelo}, Año {anio}, " +
                             $"con {kmActual} Kms, el Service es cada {kmService} Kms, de color {color}, y el dueño es {duenio}");
+                        break;
 
                     case 2:
                         Console.WriteLine("Ingrese el de Tesla a Eliminar");
                         string aEliminar = Console.ReadLine();
                         bool check = false;
-                        for (int i = 0; i < cantidad_autos; i++) 
+                        for (int i = 0; i < cantidad_autos; i++)
                         {
-                            if (teslas[i].modelo == aEliminar);
+                            if (teslas[i].modelo == aEliminar) ;
                             {
                                 for (int j = i; j < cantidad_autos - 1; j++)
                                 {
@@ -83,10 +91,65 @@ namespace Proyecto_1_Grupo
                         }
                         break;
 
+                    case 3:
+                        Console.WriteLine("Lista de Vehiculos que ya tuvieron su Service:");
+                        int cantService = 0;
+                        for (int i = 0; i < cantidad_autos; i++)
+                        {
+                            cantService = (teslas[i].kmActual / teslas[i].kmService);
+                            if (cantService > 0)
+                            {
+                                Console.WriteLine($"El modelo: {teslas[i].modelo} tiene: {cantService}");
+                            }
+                        }
+                        break;
+
+                    case 4:
+                        Console.WriteLine("Lista de Vehiculos Tesla Ordenados por Año:");
+                        for (int i = 0; i < cantidad_autos; i++)
+                        {
+                            for (int j = i + 1; j < cantidad_autos; j++)
+                            {
+                                if (teslas[i].anio > teslas[j].anio)
+                                {
+                                    var temp = teslas[i];
+                                    teslas[i] = teslas[j];
+                                    teslas[j] = temp;
+                                }
+                            }
+                        }
+                        Console.WriteLine("Lista de Vehiculos Tesla ordenados por Año:");
+                        for (int i = 0; i < cantidad_autos; i++)
+                        {
+                            Console.WriteLine($"Modelo: {teslas[i].modelo} / Año: {teslas[i].anio}");
+                        }
+                        break;
+
+                    case 5:
+                        var masNuevo = teslas[];// REVISAR ESTA PARTE
+                        for (int i = 0; i < cantidad_autos; i++)
+                        {   
+                            if (teslas[i].anio > masNuevo.anio)
+                            {
+                                masNuevo = teslas[i];
+                            }
+                        }
+                        Console.WriteLine(masNuevo.ToString());
+                        break;
+
+                    case 6:
+                        Console.WriteLine("Gracias por usar Nuestros Servicios");
+                        break;
+
+                    default:
+                        Console.WriteLine("Opcion Invalida, Intente de Nuevo.");
+                        break;
+
+
 
 
                 }
-            }
+            }while (opcion != 6);
         }
     }
 }
