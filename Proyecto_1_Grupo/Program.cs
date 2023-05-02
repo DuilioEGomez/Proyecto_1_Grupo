@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection.Metadata.Ecma335;
 
 namespace Proyecto_1_Grupo
 {
@@ -81,6 +82,7 @@ namespace Proyecto_1_Grupo
 
                             }
                         }
+
                         if (check)
                         {
                             Console.WriteLine($"El Tesla {aEliminar} ha sido eliminado exitosamente.");
@@ -126,15 +128,16 @@ namespace Proyecto_1_Grupo
                         break;
 
                     case 5:
-                        var masNuevo = teslas[];// REVISAR ESTA PARTE
+                        var masNuevo = teslas[0];// REVISAR ESTA PARTE
                         for (int i = 0; i < cantidad_autos; i++)
                         {   
                             if (teslas[i].anio > masNuevo.anio)
                             {
+
                                 masNuevo = teslas[i];
                             }
                         }
-                        Console.WriteLine(masNuevo.ToString());
+                        Console.WriteLine($"\nEl Tesla más nuevo es: {masNuevo.modelo} ({masNuevo.anio}) - Dueño: {masNuevo.duenio}");
                         break;
 
                     case 6:
