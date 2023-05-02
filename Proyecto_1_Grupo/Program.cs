@@ -65,6 +65,7 @@ namespace Proyecto_1_Grupo
                         break;
 
                     case 2:
+                        /// Revisar porque falla cuando se pone otra cosa que no sea un tesla, borra el primero en la lista
                         Console.WriteLine("Ingrese el de Tesla a Eliminar");
                         string aEliminar = Console.ReadLine();
                         bool check = false;
@@ -128,7 +129,7 @@ namespace Proyecto_1_Grupo
                         break;
 
                     case 5:
-                        var masNuevo = teslas[0];// REVISAR ESTA PARTE
+                        var masNuevo = teslas[0];
                         for (int i = 0; i < cantidad_autos; i++)
                         {   
                             if (teslas[i].anio > masNuevo.anio)
