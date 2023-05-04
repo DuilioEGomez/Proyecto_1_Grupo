@@ -144,6 +144,7 @@ namespace Proyecto_1_Grupo
                         int cantService = 0;
                         // se itera la estructura "teslas".
                         
+                        // MODIFICACION CATA
                         for (int i = 0; i < cantidad_autos; i++)
                         {
                             // se calcula la cantidad de services hechos segun el kilometraje actual dividido
@@ -156,8 +157,23 @@ namespace Proyecto_1_Grupo
                                 Console.WriteLine($"El modelo: {teslas[i].modelo} tiene: {cantService}");
                                 
                             }
+                             //se crea proxService(inicializada en el primer service a hacer al tesla)
+                            int proxService = teslas[i].kmService;
+                            //se obtiene el kilometraje necesario para el service proximo, multiplicando la cant de service
+                            //hechos por los km de service por defecto
+
+                                proxService = proxService * (cantService+1);
+
+                            //si la cantidad de km faltantes para el proximo service es menor o igual al 10%, se notifica
+                            if (proxService - teslas[i].kmActual <= (proxService*0.1) )
+                            {
+                                Console.WriteLine("ATENCIÓN! service próximo");
+                                Console.WriteLine($"Faltan {(proxService - teslas[i].kmActual)}km para el próximo service del modelo {teslas[i].modelo}");
+                                
+                            }
+                            //FIN MODIFICACION CATA
                         }
-                        Console.WriteLine("");
+                        
                         break;
 
                     case 4:
