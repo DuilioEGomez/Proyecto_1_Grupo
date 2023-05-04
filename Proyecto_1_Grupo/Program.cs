@@ -137,14 +137,13 @@ namespace Proyecto_1_Grupo
                         break;
 
                     case 3:
+                        Console.WriteLine("");
                         Console.WriteLine("Lista de Vehiculos que ya tuvieron su Service:");
                         // se inicializa un contador llamado "cantService" para registar la cantidad de autos
                         // que ya tuviero su service.
-                        
                         int cantService = 0;
+
                         // se itera la estructura "teslas".
-                        
-                        // MODIFICACION CATA
                         for (int i = 0; i < cantidad_autos; i++)
                         {
                             // se calcula la cantidad de services hechos segun el kilometraje actual dividido
@@ -157,8 +156,9 @@ namespace Proyecto_1_Grupo
                                 Console.WriteLine($"El modelo: {teslas[i].modelo} tiene: {cantService}");
                                 
                             }
-                             //se crea proxService(inicializada en el primer service a hacer al tesla)
+                            //se crea proxService(inicializada en el primer service a hacer al vehiculo tesla)
                             int proxService = teslas[i].kmService;
+
                             //se obtiene el kilometraje necesario para el service proximo, multiplicando la cant de service
                             //hechos por los km de service por defecto
 
@@ -169,11 +169,9 @@ namespace Proyecto_1_Grupo
                             {
                                 Console.WriteLine("ATENCIÓN! service próximo");
                                 Console.WriteLine($"Faltan {(proxService - teslas[i].kmActual)}km para el próximo service del modelo {teslas[i].modelo}");
-                                
+                                Console.WriteLine("");
                             }
-                            //FIN MODIFICACION CATA
                         }
-                        
                         break;
 
                     case 4:
