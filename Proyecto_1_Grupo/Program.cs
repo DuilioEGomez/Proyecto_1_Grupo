@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Reflection.Metadata.Ecma335;
+using System.Linq;
 
 namespace Proyecto_1_Grupo
-    // Integrantes del Grupo: Catalina German, Juan Manuel Ignacio Galvez, Duilio Enrique Gomez.
+// Integrantes del Grupo: Catalina German, Juan Manuel Ignacio Galvez, Duilio Enrique Gomez.
 {
     internal class Program
     {
@@ -24,54 +25,141 @@ namespace Proyecto_1_Grupo
             // se Inicializa un contador llamado "cantidad_autos".
             int cantidad_autos = 0;
 
-            // se inicializa la variable entera "opcion" la cual servira para que funciones el menu de opciones de 1 a 6.
-            int opcion;
+            int opcion = 0;
 
             Console.WriteLine("Bienvenido al Sistema de Gestion de Autos Tesla\n\r");
 
             // Se crea el menu y se lo muestra en pantalla.
             do
             {
-                Console.WriteLine("");
-                Console.WriteLine("Ingrese su Opcion: ");
-                Console.WriteLine("");
-                Console.WriteLine(" 1 -> Dar de Alta un Tesla.");
-                Console.WriteLine(" 2 -> Eliminar un Vehiculo Tesla.");
-                Console.WriteLine(" 3 -> Mostrar un Listado de los Vehiculos Tesla que ya Tuvieron su Service.");
-                Console.WriteLine(" 4 -> Reordenar el Listado de los Vehiculos Tesla por Año");
-                Console.WriteLine(" 5 -> Mostrar el Vehiculo Tesla mas Nuevo.");
-                Console.WriteLine("");
-                Console.WriteLine(" 6 -> Salir.");
-                Console.WriteLine("");
-
+                Console.WriteLine("\nIngrese su opcion:\n");
+                Console.WriteLine(" 1 -> Dar de alta un vehiculo Tesla.");
+                Console.WriteLine(" 2 -> Eliminar un vehiculo Tesla.");
+                Console.WriteLine(" 3 -> Mostrar un listado de los vehiculos Tesla que ya tuvieron su service.");
+                Console.WriteLine(" 4 -> Reordenar el listado de los vehiculos Tesla por año.");
+                Console.WriteLine(" 5 -> Mostrar el vehiculo Tesla mas nuevo.\n");
+                Console.WriteLine(" 6 -> Salir.\n");
+                //chequeo opción válida: definición de variables
+                var opcInput = Console.ReadLine();
+                
                 // se carga la entrada del teclado en la variable "opcion" y se la convierte a entero.
-                opcion = Convert.ToInt32(Console.ReadLine());
+                if (opcInput.All(char.IsDigit))
+                {
+                    opcion = Convert.ToInt32(opcInput);
+                }
+                else
+                {
+                    Console.WriteLine("\nSolo se permiten ingresar números.\n");
+                            Console.WriteLine("Presione cualquier tecla para volver al menú de inicio.");
+                            Console.ReadKey();
+                            continue;
+                }
+                    
 
                 switch (opcion)
                 {
                     case 1:
-                        Console.WriteLine("");
-                        Console.WriteLine("Dar de Alta un Vehiculo Tesla");
-                        Console.WriteLine("");
-                        Console.WriteLine("Ingrese el Modelo del vehiculo Tesla:");
+                        Console.WriteLine("\nDar de alta un vehiculo Tesla\n");
+
+                        //-------------------INGRESO MODELO
+                        Console.WriteLine("Ingrese el modelo del vehiculo Tesla:");
                         string modelo = Console.ReadLine();
-                        Console.WriteLine("Ingrese el Año del Modelo:");
-                        int anio = Convert.ToInt32(Console.ReadLine());
-                        Console.WriteLine("Ingrese el Kilometraje Actual:");
-                        int kmActual = Convert.ToInt32(Console.ReadLine());
-                        Console.WriteLine("Ingrese el Kilometraje de los Service:");
-                        int kmService = Convert.ToInt32(Console.ReadLine());
-                        Console.WriteLine("Ingrese el Color del Modelo Tesla:");
+
+
+                        //--------------------INGRESO AÑO
+
+                        Console.WriteLine("\nIngrese el año del modelo:");
+
+                        //chequeo año válido: definición de variables
+                        var anioinput = Console.ReadLine();
+                        int anio;
+                        //si el string ingresado es numeral se convierte a int
+                        if (anioinput.All(char.IsDigit))
+                        {
+                            anio = Convert.ToInt32(anioinput);
+
+                            //chequea que el año esté entre el año del primer modelo de tesla (2006)
+                            //y el año actual.
+                            if (anio<2005 || anio>DateTime.Now.Year)
+                            {
+                                Console.WriteLine("\nAño inválido, debe ser desde el 2006 a la actualidad. \n");
+
+
+                                Console.WriteLine("Presione cualquier tecla para volver al menú de inicio.\n");
+                                Console.ReadKey();
+                                break;
+                            }
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("Solo se permiten ingresar números.\n");
+                            Console.WriteLine("Presione cualquier tecla para volver al menú de inicio.\n");
+                            Console.ReadKey();
+                            break;
+                        };
+
+
+                        //---------------INGRESO KILOMETRAJE
+
+                        Console.WriteLine("\nIngrese el kilometraje actual del vehiculo:");
+
+                        //chequeo kilometraje válido: definición de variables
+                        var kmInput = Console.ReadLine();
+                        int kmActual;
+                        //si el string ingresado es numeral se convierte a int
+                        if (kmInput.All(char.IsDigit))
+                        {
+                            kmActual = Convert.ToInt32(kmInput);
+                         }
+                        else
+                        {
+                            Console.WriteLine("Solo se permiten ingresar números.\n");
+                            Console.WriteLine("Presione cualquier tecla para volver al menú de inicio.\n");
+                            Console.ReadKey();
+                            break;
+                        };
+
+
+                        //--------------------INGRESO SERVICE
+
+                        Console.WriteLine("\nIngrese cada cuántos km se debe realizar el Service:");
+                        //chequeo kilometraje válido: definición de variables
+                        var serviceInput = Console.ReadLine();
+                        int kmService;
+                        //si el string ingresado es numeral se convierte a int
+                        if (serviceInput.All(char.IsDigit))
+                        {
+                            kmService = Convert.ToInt32(serviceInput);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Solo se permiten ingresar números.\n");
+                            Console.WriteLine("Presione cualquier tecla para volver al menú de inicio.\n");
+                            Console.ReadKey();
+                            break;
+                        };
+
+
+                        //---------------INGRESO COLOR
+
+                        Console.WriteLine("\nIngrese el color del vehiculo Tesla:");
                         string color = Console.ReadLine();
-                        Console.WriteLine("Ingrese el Dueño del Modelo Tesla");
+
+
+                        //---------------INGRESO DUEÑO
+
+                        Console.WriteLine("\nIngrese el nombre del dueño del vehiculo Tesla:\n");
                         string duenio = Console.ReadLine();
-                        Console.WriteLine("");
+                        //se capitaliza el nombre del dueño
+                        duenio = char.ToUpper(duenio[0]) + duenio.Substring(1);
                         
+
                         // se crea un vehiculo que lleva un numero identificatorio llamado "cantidad_autos",
                         // en la estructura "teslas"
                         // y se le cargan los datos ingresados por el usuario.
                         teslas[cantidad_autos] = new Tesla
-                        
+
                         {
                             modelo = modelo,
                             anio = anio,
@@ -80,26 +168,27 @@ namespace Proyecto_1_Grupo
                             color = color,
                             duenio = duenio
                         };
-                        
+
                         // se incrementa en uno el contador de teslas.
                         cantidad_autos++;
 
                         // se imprime los datos cargados por el usuario.
-                        Console.WriteLine($"Se ha dado de alta un nuevo vehiculo Tesla: Modelo {modelo}, Año {anio}, " +
-                            $"con {kmActual} Kms, el Service es cada {kmService} Kms, de color {color}, y el dueño es {duenio}\n\r");
+                        Console.WriteLine($"Se ha dado de alta un nuevo vehiculo Tesla:\nModelo {modelo}, año {anio}, " +
+                            $"con {kmActual} Kms, el Service es cada {kmService} Kms, de color {color}, y el dueño es {duenio}.\n\r");
+                        Console.WriteLine("\nPresione cualquier tecla para volver al menú de inicio.\n");
+                        Console.ReadKey();
                         break;
 
                     case 2:
-                        Console.WriteLine("");
-                        Console.WriteLine("Ingrese el de Tesla a Eliminar");
-                        
+                        Console.WriteLine("\nIngrese el de Tesla a eliminar:");
+
                         // se declara la variable "aEliminar" la cual sirve para ingresar por el usuario el modelo
                         // de tesla a eliminar.
                         string aEliminar = Console.ReadLine();
 
                         // se crea un flag o bandera para la confirmacion si fue borrado con exito el vehiculo a eliminar.
                         bool check = false;
-                        
+
                         // se recorre la estructura teslas para buscar el modelo de vehiculo a eliminar.
                         for (int i = 0; i < cantidad_autos; i++)
                         {
@@ -127,23 +216,35 @@ namespace Proyecto_1_Grupo
                         if (check)
                         {
                             Console.WriteLine($"El Tesla {aEliminar} ha sido eliminado exitosamente.");
-                            Console.WriteLine("");
+                            Console.WriteLine("\nPresione cualquier tecla para volver al menú de inicio.\n");
+                            Console.ReadKey();
                         }
                         else
                         {
                             Console.WriteLine($"No se encontró un Tesla con el modelo {aEliminar}.");
-                            Console.WriteLine("");
+                            Console.WriteLine("\nPresione cualquier tecla para volver al menú de inicio.\n");
+                            Console.ReadKey();
                         }
                         break;
 
                     case 3:
-                        Console.WriteLine("");
-                        Console.WriteLine("Lista de Vehiculos que ya tuvieron su Service:");
+
+                        //si no hay autos ingresados previamente, sale
+                        if (cantidad_autos == 0)
+                        {
+                            Console.WriteLine("\nNo hay vehiculos que hayan tenido service aún.\n");
+                            Console.WriteLine("Presione cualquier tecla para volver al menú de inicio.");
+                            Console.ReadKey();
+                            break;
+                        };
+
+
                         // se inicializa un contador llamado "cantService" para registar la cantidad de autos
                         // que ya tuviero su service.
-                        int cantService = 0;
 
+                        int cantService = 0;
                         // se itera la estructura "teslas".
+
                         for (int i = 0; i < cantidad_autos; i++)
                         {
                             // se calcula la cantidad de services hechos segun el kilometraje actual dividido
@@ -153,12 +254,15 @@ namespace Proyecto_1_Grupo
                             // si la cantidad de services es mayor a 0 se imprime el modelo y su cantidad se services.
                             if (cantService > 0)
                             {
-                                Console.WriteLine($"El modelo: {teslas[i].modelo} tiene: {cantService}");
-                                
-                            }
-                            //se crea proxService(inicializada en el primer service a hacer al vehiculo tesla)
-                            int proxService = teslas[i].kmService;
+                                Console.WriteLine("\nLista de vehiculos que ya tuvieron su Service:\n");
+                                Console.WriteLine($"Al modelo {teslas[i].modelo} se le han hecho {cantService} service(s)");
 
+                            }
+                            
+
+
+                            //se crea proxService(inicializada en el primer service a hacer al tesla)
+                            int proxService = teslas[i].kmService;
                             //se obtiene el kilometraje necesario para el service proximo, multiplicando la cant de service
                             //hechos por los km de service por defecto
 
@@ -169,17 +273,29 @@ namespace Proyecto_1_Grupo
                             {
                                 Console.WriteLine("ATENCIÓN! service próximo");
                                 Console.WriteLine($"Faltan {(proxService - teslas[i].kmActual)}km para el próximo service del modelo {teslas[i].modelo}");
-                                Console.WriteLine("");
+                                
                             }
                         }
+                        Console.WriteLine("\nPresione cualquier tecla para volver al menú de inicio.\n");
+                        Console.ReadKey();
                         break;
 
                     case 4:
+
+                        //si no hay autos ingresados previamente, sale
+                        if (cantidad_autos == 0)
+                        {
+                            Console.WriteLine("\nNo hay vehiculos registrados aún.\n");
+                            Console.WriteLine("Presione cualquier tecla para volver al menú de inicio.");
+                            Console.ReadKey();
+                            break;
+                        };
+
                         Console.WriteLine("Lista de Vehiculos Tesla Ordenados por Año:");
 
                         // se itera la estructura "teslas".
                         for (int i = 0; i < cantidad_autos; i++)
-                        {   
+                        {
                             // se itera la estructura, donde j es i + 1.
                             // se hace esto para poder comparar un vehiculo versus el siguiente comparando el año de los modelos.
                             for (int j = i + 1; j < cantidad_autos; j++)
@@ -191,22 +307,41 @@ namespace Proyecto_1_Grupo
                                     var temp = teslas[i];
                                     teslas[i] = teslas[j];
                                     teslas[j] = temp;
-                                }
+                                                                    }
                             }
                         }
-                        // se detalla los modelos por año.
-                        for (int i = 0; i < cantidad_autos; i++)
+
+
+                                // se detalla los modelos por año.
+                                for (int i = 0; i < cantidad_autos; i++)
                         {
-                            Console.WriteLine($"Modelo: {teslas[i].modelo} / Año: {teslas[i].anio}");
+                   
+
+
+                            Console.WriteLine($"Modelo: {teslas[i].modelo} / Año: {teslas[i].anio} / Dueño: {teslas[i].duenio}");
+
                         }
+                        Console.WriteLine("\nPresione cualquier tecla para volver al menú de inicio.\n");
+                        Console.ReadKey();
                         break;
 
                     case 5:
+
+                        //si no hay autos ingresados previamente, sale
+                        if (cantidad_autos == 0)
+                        {
+                            Console.WriteLine("\nNo hay vehiculos registrados aún.\n");
+                            Console.WriteLine("Presione cualquier tecla para volver al menú de inicio.");
+                            Console.ReadKey();
+                            break;
+                        };
+
+
                         // se crea la variable "masNuevo" donde se guarda el primer vehiculo el cual se usara
                         // para comparar cual es el mas nuevo de la estrutura "teslas".
                         var masNuevo = teslas[0];
                         for (int i = 0; i < cantidad_autos; i++)
-                        {   
+                        {
                             if (teslas[i].anio > masNuevo.anio)
                             {
                                 // se carga el vehiculo mas nuevo en la variable "masNuevo"
@@ -215,17 +350,19 @@ namespace Proyecto_1_Grupo
                         }
                         // se detalla e imprime el vehiculo mas nuevo.
                         Console.WriteLine($"\nEl Tesla más nuevo es: {masNuevo.modelo} ({masNuevo.anio}) - Dueño: {masNuevo.duenio}");
+                        Console.WriteLine("\nPresione cualquier tecla para volver al menú de inicio.\n");
+                        Console.ReadKey();
                         break;
 
                     case 6:
-                        Console.WriteLine("Gracias por usar Nuestros Servicios");
+                        Console.WriteLine("Gracias por usar nuestros servicios.");
+                        Console.ReadKey();
                         break;
 
                     default:
-                        Console.WriteLine("Opcion Invalida, Intente de Nuevo.");
+                        Console.WriteLine("Opcion inválida, intente de nuevo.\n");
+                        Console.WriteLine("Presione cualquier tecla para volver al menú de inicio.");
+                        Console.ReadKey();
                         break;
                 }
-            }while (opcion != 6);
-        }
-    }
-}
+            } while (opcion != 6);
