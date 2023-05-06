@@ -242,7 +242,7 @@ namespace Proyecto_1_Grupo
                         // se inicializa un contador llamado "cantService" para registar la cantidad de autos
                         // que ya tuviero su service.
 
-                        int cantService = 0;
+                        long cantService = 0;
                         // se itera la estructura "teslas".
 
                         for (int i = 0; i < cantidad_autos; i++)
@@ -262,7 +262,7 @@ namespace Proyecto_1_Grupo
 
 
                             //se crea proxService(inicializada en el primer service a hacer al tesla)
-                            int proxService = teslas[i].kmService;
+                            long proxService = teslas[i].kmService;
                             //se obtiene el kilometraje necesario para el service proximo, multiplicando la cant de service
                             //hechos por los km de service por defecto
 
