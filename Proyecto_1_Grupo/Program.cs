@@ -12,8 +12,8 @@ namespace Proyecto_1_Grupo
         {
             public string modelo;
             public int anio;
-            public int kmActual;
-            public int kmService;
+            public long kmActual;
+            public long kmService;
             public string color;
             public string duenio;
         }
@@ -41,20 +41,20 @@ namespace Proyecto_1_Grupo
                 Console.WriteLine(" 6 -> Salir.\n");
                 //chequeo opción válida: definición de variables
                 var opcInput = Console.ReadLine();
-                
+
                 // se carga la entrada del teclado en la variable "opcion" y se la convierte a entero.
-                if (opcInput.All(char.IsDigit))
+                if (opcInput.All(char.IsDigit) && opcInput !="")
                 {
                     opcion = Convert.ToInt32(opcInput);
                 }
                 else
                 {
                     Console.WriteLine("\nSolo se permiten ingresar números.\n");
-                            Console.WriteLine("Presione cualquier tecla para volver al menú de inicio.");
-                            Console.ReadKey();
-                            continue;
+                    Console.WriteLine("Presione cualquier tecla para volver al menú de inicio.");
+                    Console.ReadKey();
+                    continue;
                 }
-                    
+
 
                 switch (opcion)
                 {
@@ -80,7 +80,7 @@ namespace Proyecto_1_Grupo
 
                             //chequea que el año esté entre el año del primer modelo de tesla (2006)
                             //y el año actual.
-                            if (anio<2005 || anio>DateTime.Now.Year)
+                            if (anio < 2005 || anio > DateTime.Now.Year)
                             {
                                 Console.WriteLine("\nAño inválido, debe ser desde el 2006 a la actualidad. \n");
 
@@ -97,7 +97,7 @@ namespace Proyecto_1_Grupo
                             Console.WriteLine("Presione cualquier tecla para volver al menú de inicio.\n");
                             Console.ReadKey();
                             break;
-                        };
+                        }
 
 
                         //---------------INGRESO KILOMETRAJE
@@ -106,31 +106,11 @@ namespace Proyecto_1_Grupo
 
                         //chequeo kilometraje válido: definición de variables
                         var kmInput = Console.ReadLine();
-                        int kmActual;
+                        long kmActual;
                         //si el string ingresado es numeral se convierte a int
                         if (kmInput.All(char.IsDigit))
                         {
-                            kmActual = Convert.ToInt32(kmInput);
-                         }
-                        else
-                        {
-                            Console.WriteLine("Solo se permiten ingresar números.\n");
-                            Console.WriteLine("Presione cualquier tecla para volver al menú de inicio.\n");
-                            Console.ReadKey();
-                            break;
-                        };
-
-
-                        //--------------------INGRESO SERVICE
-
-                        Console.WriteLine("\nIngrese cada cuántos km se debe realizar el Service:");
-                        //chequeo kilometraje válido: definición de variables
-                        var serviceInput = Console.ReadLine();
-                        int kmService;
-                        //si el string ingresado es numeral se convierte a int
-                        if (serviceInput.All(char.IsDigit))
-                        {
-                            kmService = Convert.ToInt32(serviceInput);
+                            kmActual = Convert.ToInt64(kmInput);
                         }
                         else
                         {
@@ -138,7 +118,27 @@ namespace Proyecto_1_Grupo
                             Console.WriteLine("Presione cualquier tecla para volver al menú de inicio.\n");
                             Console.ReadKey();
                             break;
-                        };
+                        }
+
+
+                        //--------------------INGRESO SERVICE
+
+                        Console.WriteLine("\nIngrese cada cuántos km se debe realizar el Service:");
+                        //chequeo kilometraje válido: definición de variables
+                        var serviceInput = Console.ReadLine();
+                        long kmService;
+                        //si el string ingresado es numeral se convierte a int
+                        if (serviceInput.All(char.IsDigit))
+                        {
+                            kmService = Convert.ToInt64(serviceInput);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Solo se permiten ingresar números.\n");
+                            Console.WriteLine("Presione cualquier tecla para volver al menú de inicio.\n");
+                            Console.ReadKey();
+                            break;
+                        }
 
 
                         //---------------INGRESO COLOR
@@ -153,7 +153,7 @@ namespace Proyecto_1_Grupo
                         string duenio = Console.ReadLine();
                         //se capitaliza el nombre del dueño
                         duenio = char.ToUpper(duenio[0]) + duenio.Substring(1);
-                        
+
 
                         // se crea un vehiculo que lleva un numero identificatorio llamado "cantidad_autos",
                         // en la estructura "teslas"
@@ -180,7 +180,7 @@ namespace Proyecto_1_Grupo
                         break;
 
                     case 2:
-                        Console.WriteLine("\nIngrese el de Tesla a eliminar:");
+                        Console.WriteLine("\nIngrese el Modelo de Tesla a eliminar:");
 
                         // se declara la variable "aEliminar" la cual sirve para ingresar por el usuario el modelo
                         // de tesla a eliminar.
@@ -236,7 +236,7 @@ namespace Proyecto_1_Grupo
                             Console.WriteLine("Presione cualquier tecla para volver al menú de inicio.");
                             Console.ReadKey();
                             break;
-                        };
+                        }
 
 
                         // se inicializa un contador llamado "cantService" para registar la cantidad de autos
@@ -258,7 +258,7 @@ namespace Proyecto_1_Grupo
                                 Console.WriteLine($"Al modelo {teslas[i].modelo} se le han hecho {cantService} service(s)");
 
                             }
-                            
+
 
 
                             //se crea proxService(inicializada en el primer service a hacer al tesla)
@@ -266,14 +266,14 @@ namespace Proyecto_1_Grupo
                             //se obtiene el kilometraje necesario para el service proximo, multiplicando la cant de service
                             //hechos por los km de service por defecto
 
-                                proxService = proxService * (cantService+1);
+                            proxService = proxService * (cantService + 1);
 
                             //si la cantidad de km faltantes para el proximo service es menor o igual al 10%, se notifica
-                            if (proxService - teslas[i].kmActual <= (proxService*0.1) )
+                            if (proxService - teslas[i].kmActual <= (proxService * 0.1))
                             {
                                 Console.WriteLine("ATENCIÓN! service próximo");
                                 Console.WriteLine($"Faltan {(proxService - teslas[i].kmActual)}km para el próximo service del modelo {teslas[i].modelo}");
-                                
+
                             }
                         }
                         Console.WriteLine("\nPresione cualquier tecla para volver al menú de inicio.\n");
@@ -289,7 +289,7 @@ namespace Proyecto_1_Grupo
                             Console.WriteLine("Presione cualquier tecla para volver al menú de inicio.");
                             Console.ReadKey();
                             break;
-                        };
+                        }
 
                         Console.WriteLine("Lista de Vehiculos Tesla Ordenados por Año:");
 
@@ -307,15 +307,15 @@ namespace Proyecto_1_Grupo
                                     var temp = teslas[i];
                                     teslas[i] = teslas[j];
                                     teslas[j] = temp;
-                                                                    }
+                                }
                             }
                         }
 
 
-                                // se detalla los modelos por año.
-                                for (int i = 0; i < cantidad_autos; i++)
+                        // se detalla los modelos por año.
+                        for (int i = 0; i < cantidad_autos; i++)
                         {
-                   
+
 
 
                             Console.WriteLine($"Modelo: {teslas[i].modelo} / Año: {teslas[i].anio} / Dueño: {teslas[i].duenio}");
@@ -334,7 +334,7 @@ namespace Proyecto_1_Grupo
                             Console.WriteLine("Presione cualquier tecla para volver al menú de inicio.");
                             Console.ReadKey();
                             break;
-                        };
+                        }
 
 
                         // se crea la variable "masNuevo" donde se guarda el primer vehiculo el cual se usara
@@ -366,3 +366,6 @@ namespace Proyecto_1_Grupo
                         break;
                 }
             } while (opcion != 6);
+        }
+    }
+}
