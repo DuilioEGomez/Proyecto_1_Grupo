@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection.Metadata.Ecma335;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Proyecto_1_Grupo
 // Integrantes del Grupo: Catalina German, Juan Manuel Ignacio Galvez, Duilio Enrique Gomez.
@@ -26,6 +27,7 @@ namespace Proyecto_1_Grupo
             int cantidad_autos = 0;
 
             int opcion = 0;
+            
 
             Console.WriteLine("Bienvenido al Sistema de Gestion de Autos Tesla\n\r");
 
@@ -107,10 +109,26 @@ namespace Proyecto_1_Grupo
                         //chequeo kilometraje válido: definición de variables
                         var kmInput = Console.ReadLine();
                         long kmActual;
-                        //si el string ingresado es numeral se convierte a int
+                        
+                        //si el string ingresado es numeral se convierte a int de 64 bits (long)
                         if (kmInput.All(char.IsDigit))
                         {
-                            kmActual = Convert.ToInt64(kmInput);
+                            
+                            if (kmInput < 100000001)
+                            {
+                                kmActual = Convert.ToInt64(kmInput);
+                            }
+                            else
+                            {
+                                Console.WriteLine($"Ya es hora de cambiar tu Tesla {modelo} por un modelo mas nuevo, acerquese a nuestras concesionaria mas cercana");
+                                Console.WriteLine("Presione cualquier tecla para volver al menú de inicio.\n");
+                                Console.ReadKey();
+                                break;
+                            }
+                            
+                            
+                           
+                                                        
                         }
                         else
                         {
@@ -127,7 +145,7 @@ namespace Proyecto_1_Grupo
                         //chequeo kilometraje válido: definición de variables
                         var serviceInput = Console.ReadLine();
                         long kmService;
-                        //si el string ingresado es numeral se convierte a int
+                        //si el string ingresado es numeral se convierte a int de 64 bits (long)
                         if (serviceInput.All(char.IsDigit))
                         {
                             kmService = Convert.ToInt64(serviceInput);
