@@ -12,8 +12,8 @@ namespace Proyecto_1_Grupo
         {
             public string modelo;
             public int anio;
-            public int kmActual;
-            public int kmService;
+            public long kmActual;
+            public long kmService;
             public string color;
             public string duenio;
         }
