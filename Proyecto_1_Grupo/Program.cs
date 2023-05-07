@@ -190,7 +190,7 @@ namespace Proyecto_1_Grupo
                         // Si no hay autos ingresados previamente, sale
                         if (cantidad_autos == 0)
                         {
-                            Console.WriteLine("\nNo hay vehiculos que hayan tenido service aún.\n");
+                            Console.WriteLine("\nNo hay vehiculos ingresados aún.\n");
                             Console.WriteLine("Presione cualquier tecla para volver al menú de inicio.");
                             Console.ReadKey();
                             break;
