@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Reflection.Metadata.Ecma335;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -27,9 +27,10 @@ namespace Proyecto_1_Grupo
             // Se instancia Tesla con la estructura llamada "teslas" con un limite de 50 vehiculos teslas.
             Tesla[] teslas = new Tesla[50];
 
-            // se Inicializa un contador llamado "cantidad_autos".
+            // Se Inicializa un contador llamado "cantidad_autos".
             int cantidad_autos = 0;
 
+            // Se crea la variable "opcion" para usar en el menu.
             int opcion = 0;
             
 
@@ -46,10 +47,10 @@ namespace Proyecto_1_Grupo
                 Console.WriteLine(" 5 -> Mostrar el vehiculo Tesla mas nuevo.\n");
                 Console.WriteLine(" 6 -> Salir.\n");
 
-                //chequeo opción válida: definición de variables
+                // Chequeo opción válida: definición de variables
                 var opcInput = Console.ReadLine();
 
-                // se carga la entrada del teclado en la variable "opcion" y se la convierte a entero.
+                // Se carga la entrada del teclado en la variable "opcion" y se la convierte a entero.
                 if (opcInput.All(char.IsDigit) && opcInput !="")
                 {
                     opcion = Convert.ToInt32(opcInput);
@@ -108,11 +109,11 @@ namespace Proyecto_1_Grupo
                         //---------------INGRESO KILOMETRAJE
                         Console.WriteLine("\nIngrese el kilometraje actual del vehiculo:");
 
-                        //chequeo kilometraje válido: definición de variables
+                        // Chequeo kilometraje válido: definición de variables
                         var kmInput = Console.ReadLine();
                         long kmActual;
                         
-                        //si el string ingresado es numeral se convierte a int de 64 bits (long)
+                        // Si el string ingresado es numeral se convierte a int de 64 bits (long)
                         if (kmInput.All(char.IsDigit))
                         {
                             kmActual = Convert.ToInt64(kmInput);
@@ -159,7 +160,7 @@ namespace Proyecto_1_Grupo
                         Console.WriteLine("\nIngrese el nombre del dueño del vehiculo Tesla:");
                         string duenio = Console.ReadLine();
 
-                        //se capitaliza el primer caracter del nombre del dueño y se convierte a minusculas el resto del nombre.
+                        // Se capitaliza el primer caracter del nombre del dueño y se convierte a minusculas el resto del nombre.
                         duenio = char.ToUpper(duenio[0]) + duenio.Substring(1).ToLower();
 
                         // Se crea un vehiculo que lleva un numero identificatorio llamado "cantidad_autos",
@@ -286,6 +287,7 @@ namespace Proyecto_1_Grupo
                                 Console.WriteLine($"Faltan {(proxService - teslas[i].kmActual)}km para el próximo service del modelo {teslas[i].modelo}");
 
                             }
+                            Console.WriteLine("");
                         }
                         Console.WriteLine("\nPresione cualquier tecla para volver al menú de inicio.\n");
                         Console.ReadKey();
