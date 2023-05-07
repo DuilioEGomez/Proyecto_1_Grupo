@@ -119,7 +119,7 @@ namespace Proyecto_1_Grupo
                             kmActual = Convert.ToInt64(kmInput);
                             if (kmActual > 100000000)
                             {
-                                Console.WriteLine($"Ya es hora de cambiar tu Tesla {modelo} por un modelo mas nuevo, acerquese a nuestra concesionaria mas cercana");
+                                Console.WriteLine($"\nYa es hora de cambiar tu Tesla {modelo} por un modelo mas nuevo, acerquese a nuestra concesionaria mas cercana");
                                 Console.WriteLine("Presione cualquier tecla para volver al menú de inicio.\n");
                                 Console.ReadKey();
                                 break;
