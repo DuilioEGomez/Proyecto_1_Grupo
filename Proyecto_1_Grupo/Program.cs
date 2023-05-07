@@ -116,7 +116,7 @@ namespace Proyecto_1_Grupo
                         if (kmInput.All(char.IsDigit))
                         {
                             kmActual = Convert.ToInt64(kmInput);
-                            if (kmActual > 100000001)
+                            if (kmActual > 100000000)
                             {
                                 Console.WriteLine($"Ya es hora de cambiar tu Tesla {modelo} por un modelo mas nuevo, acerquese a nuestra concesionaria mas cercana");
                                 Console.WriteLine("Presione cualquier tecla para volver al menú de inicio.\n");
@@ -186,6 +186,14 @@ namespace Proyecto_1_Grupo
                         break;
 
                     case 2:
+                        // Si no hay autos ingresados previamente, sale
+                        if (cantidad_autos == 0)
+                        {
+                            Console.WriteLine("\nNo hay vehiculos que hayan tenido service aún.\n");
+                            Console.WriteLine("Presione cualquier tecla para volver al menú de inicio.");
+                            Console.ReadKey();
+                            break;
+                        }
                         Console.WriteLine("\nIngrese el Modelo de Tesla a eliminar:");
 
                         // Se declara la variable "aEliminar" la cual sirve para ingresar por el usuario el modelo
